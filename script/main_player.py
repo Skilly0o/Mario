@@ -1,7 +1,8 @@
 import pygame
 import os
+from camera import Camera, screen_height, screen_width
 
-os.chdir('D:\\AllPythonProjeckt\\Mario') # Тут пропишите путь вашего раб каталога что бы питон мог исать папки
+os.chdir('D:\python\my_projects\pygame_mario')  # Тут пропишите путь вашего раб каталога что бы питон мог исать папки
 # для наглядности попробуйде удалить строку выше вам выдаст ошибку
 pygame.init()
 
@@ -11,6 +12,7 @@ screen = pygame.display.set_mode((screen_width, screen_height))
 
 black = (0, 0, 0)
 white = (255, 255, 255)
+
 
 # Класс главного героя
 class Player(pygame.sprite.Sprite):
@@ -57,8 +59,9 @@ class Player(pygame.sprite.Sprite):
 all_sprites = pygame.sprite.Group()
 
 player = Player()
+camera = Camera()
 all_sprites.add(player)
-
+clock = pygame.time.Clock()
 # Основной игровой цикл
 running = True
 while running:
@@ -75,7 +78,10 @@ while running:
         elif event.type == pygame.KEYUP:
             if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
                 player.stop()
-
+    camera.update(player)
+    for sprite in all_sprites:
+        camera.apply(sprite)
+    clock.tick(60)
     all_sprites.update()
 
     screen.fill((0, 0, 200))
