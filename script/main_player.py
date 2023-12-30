@@ -1,6 +1,7 @@
-import pygame
 import os
-from camera import Camera, screen_height, screen_width
+
+import pygame
+from camera import Camera, screen_height
 
 os.chdir('D:\python\my_projects\pygame_mario')  # Тут пропишите путь вашего раб каталога что бы питон мог исать папки
 # для наглядности попробуйде удалить строку выше вам выдаст ошибку
@@ -55,6 +56,17 @@ class Player(pygame.sprite.Sprite):
     def stop(self):
         self.vel_x = 0
 
+    def update_position(self):
+        if pygame.key.get_pressed()[pygame.K_UP]:
+            player.jump()
+        if pygame.key.get_pressed()[pygame.K_LEFT]:
+            player.move_left()
+        if pygame.key.get_pressed()[pygame.K_RIGHT]:
+            player.move_right()
+        if event.type == pygame.KEYUP:
+            if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
+                player.stop()
+
 
 all_sprites = pygame.sprite.Group()
 
@@ -68,22 +80,12 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-        elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_UP:
-                player.jump()
-            elif event.key == pygame.K_LEFT:
-                player.move_left()
-            elif event.key == pygame.K_RIGHT:
-                player.move_right()
-        elif event.type == pygame.KEYUP:
-            if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
-                player.stop()
+    clock.tick(60)
     camera.update(player)
     for sprite in all_sprites:
         camera.apply(sprite)
-    clock.tick(60)
+    player.update_position()
     all_sprites.update()
-
     screen.fill((0, 0, 200))
     all_sprites.draw(screen)
     pygame.display.flip()
