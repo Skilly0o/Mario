@@ -29,6 +29,9 @@ class Player(pygame.sprite.Sprite):
         self.is_jumping = False
         self.jump_height = -16
 
+    def kill(self):
+        pygame.quit()
+
     def update(self):
         self.rect.x += self.vel_x
         self.rect.y += self.vel_y
