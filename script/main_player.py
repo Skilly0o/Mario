@@ -1,8 +1,10 @@
 import pygame
+from script.rendermap import Levels_1
 import os
+from camera import Camera
 
-os.chdir('D:\\AllPythonProjeckt\\Mario') # Тут пропишите путь вашего раб каталога что бы питон мог исать папки
-# для наглядности попробуйде удалить строку выше вам выдаст ошибку
+os.chdir('D:\\AllPythonProjeckt\\Mario')
+
 pygame.init()
 
 screen_width = 900
@@ -11,6 +13,7 @@ screen = pygame.display.set_mode((screen_width, screen_height))
 
 black = (0, 0, 0)
 white = (255, 255, 255)
+
 
 # Класс главного героя
 class Player(pygame.sprite.Sprite):
@@ -53,11 +56,25 @@ class Player(pygame.sprite.Sprite):
     def stop(self):
         self.vel_x = 0
 
+    def update_position(self):
+        if pygame.key.get_pressed()[pygame.K_UP]:
+            player.jump()
+        if pygame.key.get_pressed()[pygame.K_LEFT]:
+            player.move_left()
+        if pygame.key.get_pressed()[pygame.K_RIGHT]:
+            player.move_right()
+        if event.type == pygame.KEYUP:
+            if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
+                player.stop()
+
 
 all_sprites = pygame.sprite.Group()
 
+ # levels = Levels_1(0, 0) # Пока заглушка карта грузится но не обновляется хз как чинить
 player = Player()
+camera = Camera()
 all_sprites.add(player)
+clock = pygame.time.Clock()
 
 # Основной игровой цикл
 running = True
@@ -65,21 +82,19 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-        elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_UP:
-                player.jump()
-            elif event.key == pygame.K_LEFT:
-                player.move_left()
-            elif event.key == pygame.K_RIGHT:
-                player.move_right()
-        elif event.type == pygame.KEYUP:
-            if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
-                player.stop()
+    clock.tick(60)
+    camera.update(player)
 
+    for sprite in all_sprites:
+        camera.apply(sprite)
+
+    player.update_position()
     all_sprites.update()
+    screen.fill((0, 0, 0))
 
-    screen.fill((0, 0, 200))
+    # levels.render(screen)
     all_sprites.draw(screen)
+
     pygame.display.flip()
 
 pygame.quit()

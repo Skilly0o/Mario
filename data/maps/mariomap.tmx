@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="100" height="20" tilewidth="32" tileheight="32" infinite="0" nextlayerid="2" nextobjectid="1">
+ <tileset firstgid="1" name="testing" tilewidth="32" tileheight="32" tilecount="48" columns="8">
+  <image source="../textures/testing.jpg" width="265" height="199"/>
+ </tileset>
+ <layer id="1" name="Слой тайлов 1" width="100" height="20">
+  <data encoding="base64" compression="zlib">
+   eJzt0zEOgCAMBdCew4GZ+5/QRYODQa2DTXzDWwhtSX9oEdEAAAAAmFoKvOGvznYvD3kgj4rkUYs8ajnuvm+u8tjvZWe+rc/26snZs5qn53fyoJav/yjDCrV76S8=
+  </data>
+ </layer>
+</map>
