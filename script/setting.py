@@ -1,15 +1,15 @@
 # НАСТРОЙКИ ИГРЫ МЕНЯТЬ НА СВОЙ СТРАХ И РИСК
 
 level_map = [
-    '                            ',
-    '                            ',
-    '                            ',
+    '                             ',
+    '                             ',
+    '                             ',
     'XX    XXXXXP          XXX   X',
-    'XX        XXX      XXX     X',
-    'XXXX    XXXX   XX  XXX  X XX',
-    'XXXXX   XXXX   XX  XX  XX X ',
-    '         XXX  XXX XX   X    ',
-    'XXXXXXXXXXXXXXXXX XX   X    ', ]
+    'GG        GXXX      XXG     G',
+    'GGGG    GGGG   XX  GGG  X XX',
+    'GGGGG   GGGG   GG  GG  GG G ',
+    '         GGG  GGG GG   G    ',
+    'XXXXXXXXXXXXXXXXX GG   G    ', ]
 
 title_size = 64
 

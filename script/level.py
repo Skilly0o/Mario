@@ -1,5 +1,6 @@
 import pygame
 from script.tile import Tile
+from script.ground import Ground
 from script.setting import *
 from script.player import Player
 
@@ -22,6 +23,11 @@ class Level:
                 if col == 'X':
                     tile = Tile((x, y), title_size)
                     self.tiles.add(tile)
+
+                if col == 'G':
+                    tile = Ground((x, y), title_size)
+                    self.tiles.add(tile)
+
                 if col == 'P':
                     tile = Player((x, y))
                     self.player.add(tile)

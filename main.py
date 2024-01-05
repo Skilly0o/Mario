@@ -6,6 +6,8 @@ from script.level import Level
 
 pygame.init()
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
+background = pygame.image.load('script/data/textures/fon.jpg').convert_alpha()
+background = pygame.transform.smoothscale(background, screen.get_size())
 clock = pygame.time.Clock()
 level = Level(level_map, screen)
 
@@ -16,7 +18,7 @@ while True:
             pygame.quit()
             sys.exit()
 
-    screen.fill('purple')
+    screen.blit(background, (0, 0))
     level.run()
 
     pygame.display.update()
