@@ -13,6 +13,8 @@ class Player(pygame.sprite.Sprite):
         self.gravity = 0.8
         self.jump_speed = -16
 
+        self.on_ground = True
+
     def get_input(self):
         keys = pygame.key.get_pressed()
 
@@ -23,7 +25,8 @@ class Player(pygame.sprite.Sprite):
         else:
             self.direction.x = 0
 
-        if keys[pygame.K_UP]:
+        if keys[pygame.K_UP] and self.on_ground:
+            self.on_ground = False
             self.jump()
 
 

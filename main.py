@@ -10,8 +10,6 @@ clock = pygame.time.Clock()
 level = Level(level_map, screen)
 
 
-
-
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
