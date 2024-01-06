@@ -3,6 +3,8 @@ from script.tile import Tile
 from script.ground import Ground
 from script.setting import *
 from script.player import Player
+from script.enemy import Enemy
+
 
 class Level:
     def __init__(self, level_data, surface):
@@ -13,9 +15,10 @@ class Level:
         self.world_shift = 0
 
     def setup_level(self, layout):
-        # отричовка лвла
+        # отрисовка лвла
         self.tiles = pygame.sprite.Group()
         self.player = pygame.sprite.GroupSingle()
+        self.restart = False
         for row_index, row in enumerate(layout):
             for col_index, col in enumerate(row):
                 x = col_index * title_size
@@ -29,8 +32,12 @@ class Level:
                     self.tiles.add(tile)
 
                 if col == 'P':
-                    tile = Player((x, y))
-                    self.player.add(tile)
+                    self.tile = Player((x, y))
+                    self.player.add(self.tile)
+
+                if col == 'E':
+                    tile = Enemy((x, y), title_size)
+                    self.tiles.add(tile)
 
     def scroll_x(self):
         player = self.player.sprite
@@ -53,6 +60,11 @@ class Level:
 
         for sprite in self.tiles.sprites():
             if sprite.rect.colliderect(player.rect):
+                # Проверяем просто это стена или взрывчатка
+                if str(sprite) == "<Enemy Sprite(in 1 groups)>":
+                    sprite.update(0, explosion=True)
+                    self.tile.life = False
+                    self.restart = True
                 if player.direction.x < 0:
                     player.rect.left = sprite.rect.right
                 elif player.direction.x > 0:
@@ -64,6 +76,11 @@ class Level:
 
         for sprite in self.tiles.sprites():
             if sprite.rect.colliderect(player.rect):
+                # Проверяем просто это стена или взрывчатка
+                if str(sprite) == "<Enemy Sprite(in 1 groups)>":
+                    sprite.update(0, explosion=True)
+                    self.tile.life = False
+                    self.restart = True
                 if player.direction.y > 0:
                     player.rect.bottom = sprite.rect.top
                     player.on_ground = True
@@ -77,7 +94,6 @@ class Level:
         self.tiles.update(self.world_shift)
         self.tiles.draw(self.display_suface)
         self.scroll_x()
-
 
         # Отрисовка спрайтов игрока
         self.player.update()
