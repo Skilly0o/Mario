@@ -5,10 +5,10 @@ level_map = [
     '                             ',
     '                             ',
     'XX    XXXXXP          XXX   X',
-    'GG        GXXX      XXG     G',
-    'GGGG    GGGG   XX  GGG  X XX',
-    'GGGGG   GGGG   GG  GG  GG G ',
-    '         GGG  GGG GG   G    ',
+    'GGE       GXXX      XXG    EG',
+    'G XX    XXGG   XX  GGG  X XX',
+    'G GGX   GGGG   GG  GG  GG G ',
+    'G        EGGG  GGG GG   G   ',
     'XXXXXXXXXXXXXXXXX GG   G    ', ]
 
 title_size = 64
