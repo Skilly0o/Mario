@@ -11,9 +11,12 @@ class Enemy_run(pygame.sprite.Sprite):
         self.direction = pygame.math.Vector2(0, 0)
 
         self.a = 1
+        self.life = True
+        self.y = 0
 
-    def update(self, x_shift, cos=False):
-        self.rect.x += x_shift + self.a
+    def update(self, x_shift, cos=False, death=False, up=False, down=False, down_down=False):
+        if self.life:
+            self.rect.x += x_shift + self.a
         if cos:
             if self.a == 1:
                 self.a = -1
@@ -21,4 +24,15 @@ class Enemy_run(pygame.sprite.Sprite):
             else:
                 self.a = 1
                 self.rect.x += 4
+        if death:
+            self.life = False
+        if up:
+            self.rect.y += -2
+            self.y += 1
+        if down:
+            self.rect.y += 5
+            self.y += 1
+        if down_down:
+            self.rect.y += 1000
+            self.y += 1
 
