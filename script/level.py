@@ -4,6 +4,7 @@ from script.ground import Ground
 from script.setting import *
 from script.player import Player
 from script.enemy import Enemy
+from script.running_enemy import Enemy_run
 
 
 class Level:
@@ -39,6 +40,10 @@ class Level:
                     tile = Enemy((x, y), title_size)
                     self.tiles.add(tile)
 
+                if col == 'R':
+                    tile = Enemy_run((x, y), title_size)
+                    self.tiles.add(tile)
+
     def scroll_x(self):
         player = self.player.sprite
         player_x = player.rect.centerx
@@ -59,10 +64,23 @@ class Level:
         player.rect.x += player.direction.x * player.speed
 
         for sprite in self.tiles.sprites():
+            if str(sprite) == "<Enemy_run Sprite(in 1 groups)>":
+                for i in self.tiles.sprites():
+                    if str(i) != "<Enemy_run Sprite(in 1 groups)>":
+                        if sprite.rect.colliderect(i.rect):
+                            sprite.update(0, cos=True)
+                            break
+                else:
+                    sprite.update(0)
+
             if sprite.rect.colliderect(player.rect):
-                # Проверяем просто это стена или взрывчатка
+                # Проверяем просто это стена или враг
                 if str(sprite) == "<Enemy Sprite(in 1 groups)>":
-                    sprite.update(0, explosion=True)
+                    sprite.update(0)
+                    self.tile.life = False
+                    self.restart = True
+                if str(sprite) == "<Enemy_run Sprite(in 1 groups)>":
+                    sprite.update(0)
                     self.tile.life = False
                     self.restart = True
                 if player.direction.x < 0:
@@ -76,9 +94,9 @@ class Level:
 
         for sprite in self.tiles.sprites():
             if sprite.rect.colliderect(player.rect):
-                # Проверяем просто это стена или взрывчатка
+                # Проверяем просто это стена или враг
                 if str(sprite) == "<Enemy Sprite(in 1 groups)>":
-                    sprite.update(0, explosion=True)
+                    sprite.update(0)
                     self.tile.life = False
                     self.restart = True
                 if player.direction.y > 0:

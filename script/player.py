@@ -30,6 +30,9 @@ class Player(pygame.sprite.Sprite):
                 self.on_ground = False
                 self.jump()
 
+    def x(self):
+        return self.life
+
     def apply_gravity(self):
         self.direction.y += self.gravity
         self.rect.y += self.direction.y
