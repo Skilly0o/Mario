@@ -3,6 +3,9 @@ from script.tile import Tile
 from script.ground import Ground
 from script.setting import *
 from script.player import Player
+from script.enemy import Enemy
+from script.running_enemy import Enemy_run
+
 
 class Level:
     def __init__(self, level_data, surface):
@@ -13,9 +16,10 @@ class Level:
         self.world_shift = 0
 
     def setup_level(self, layout):
-        # отричовка лвла
+        # отрисовка лвла
         self.tiles = pygame.sprite.Group()
         self.player = pygame.sprite.GroupSingle()
+        self.restart = False
         for row_index, row in enumerate(layout):
             for col_index, col in enumerate(row):
                 x = col_index * title_size
@@ -29,8 +33,16 @@ class Level:
                     self.tiles.add(tile)
 
                 if col == 'P':
-                    tile = Player((x, y))
-                    self.player.add(tile)
+                    self.tile = Player((x, y))
+                    self.player.add(self.tile)
+
+                if col == 'E':
+                    tile = Enemy((x, y), title_size)
+                    self.tiles.add(tile)
+
+                if col == 'R':
+                    tile = Enemy_run((x, y), title_size)
+                    self.tiles.add(tile)
 
     def scroll_x(self):
         player = self.player.sprite
@@ -52,7 +64,33 @@ class Level:
         player.rect.x += player.direction.x * player.speed
 
         for sprite in self.tiles.sprites():
+            if str(sprite) == "<Enemy_run Sprite(in 1 groups)>":
+                if sprite.life:
+                    for i in self.tiles.sprites():
+                        if str(i) != "<Enemy_run Sprite(in 1 groups)>":
+                            if sprite.rect.colliderect(i.rect):
+                                sprite.update(0, cos=True)
+                                break
+                    else:
+                        sprite.update(0)
+                else:
+                    if sprite.y <= 4:
+                        sprite.update(0, up=True)
+                    elif 4 < sprite.y <= 20:
+                        sprite.update(0, down=True)
+                    elif 20 < sprite.y < 22:
+                        sprite.update(0, down_down=True)
+
             if sprite.rect.colliderect(player.rect):
+                # Проверяем просто это стена или враг
+                if str(sprite) == "<Enemy Sprite(in 1 groups)>":
+                    self.tile.life = False
+                    self.restart = True
+                if str(sprite) == "<Enemy_run Sprite(in 1 groups)>":
+                    if sprite.life:
+                        sprite.update(0)
+                        self.tile.life = False
+                        self.restart = True
                 if player.direction.x < 0:
                     player.rect.left = sprite.rect.right
                 elif player.direction.x > 0:
@@ -64,6 +102,12 @@ class Level:
 
         for sprite in self.tiles.sprites():
             if sprite.rect.colliderect(player.rect):
+                # Проверяем просто это стена или враг
+                if str(sprite) == "<Enemy Sprite(in 1 groups)>":
+                    self.tile.life = False
+                    self.restart = True
+                if str(sprite) == "<Enemy_run Sprite(in 1 groups)>":
+                    sprite.update(0, death=True)
                 if player.direction.y > 0:
                     player.rect.bottom = sprite.rect.top
                     player.on_ground = True
@@ -77,7 +121,6 @@ class Level:
         self.tiles.update(self.world_shift)
         self.tiles.draw(self.display_suface)
         self.scroll_x()
-
 
         # Отрисовка спрайтов игрока
         self.player.update()
