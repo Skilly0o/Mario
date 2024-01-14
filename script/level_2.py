@@ -2,14 +2,14 @@ import pygame
 
 from script.enemy import Enemy
 from script.ground import Ground
-from script.player import Player
+from script.player_level_2 import Player
 from script.end_1level import End_1Level
 from script.running_enemy import Enemy_run
 from script.setting import *
 from script.tile import Tile
 
 
-class Level:
+class Level_2:
     def __init__(self, level_data, surface):
         # настройки уровня
         self.display_suface = surface
@@ -93,7 +93,6 @@ class Level:
                 if str(sprite) == "<Enemy Sprite(in 1 groups)>":
                     self.tile.life = False
                     self.restart = True
-
                 if str(sprite) == "<Enemy_run Sprite(in 1 groups)>":
                     if sprite.life:
                         sprite.update(0)
@@ -130,9 +129,7 @@ class Level:
 
                 if player.direction.y > 0:
                     player.rect.bottom = sprite.rect.top
-                    player.on_ground = True
                     player.direction.y = 0
-
                 elif player.direction.y < 0:
                     player.rect.top = sprite.rect.bottom
                     player.direction.y = 0

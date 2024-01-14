@@ -4,9 +4,8 @@
 .                             .
 .                             .
 .                             .
-.                             .
-.                             .
-.                             .
-.                             .
-.                             .
+X                             X
+X                             X
+X                             X
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ...............................
