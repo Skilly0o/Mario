@@ -6,6 +6,7 @@ import pygame
 
 from script.game_over import game_over
 from script.level import Level
+from script.level_boss import Level_boss
 from script.level_2 import Level_2
 from script.menu import main_menu
 from script.setting import *
@@ -106,7 +107,7 @@ if menu_choice == "play":
             background = pygame.image.load('script/data/textures/fon.jpg').convert_alpha()
             background = pygame.transform.smoothscale(background, screen.get_size())
             clock = pygame.time.Clock()
-            level = Level(boss_lvl, screen)
+            level = Level_boss(boss_lvl, screen)
             while exitt:
                 for event in pygame.event.get():
                     if event.type == pygame.QUIT:
