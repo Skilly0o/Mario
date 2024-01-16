@@ -1,12 +1,12 @@
 import pygame
 
-from script.enemy import Enemy
-from script.ground import Ground
-from script.player_level_2 import Player
 from script.end_1level import End_1Level
+from script.enemy import Bad_trub, Bad_pipe
+from script.ground import Pipe
+from script.player_level_2 import Player
 from script.running_enemy import Enemy_run
 from script.setting import *
-from script.tile import Tile
+from script.tile import Up_pipe
 
 
 class Level_2:
@@ -27,27 +27,32 @@ class Level_2:
             for col_index, col in enumerate(row):
                 x = col_index * title_size
                 y = row_index * title_size
-                if col == 'X':
-                    tile = Tile((x, y), title_size)
+                if col == 'X':  # cтоячие блоки
+                    tile = Up_pipe((x, y), title_size)
                     self.tiles.add(tile)
 
-                if col == 'G':
-                    tile = Ground((x, y), title_size)
+                if col == 'G':  # подземные блоки
+                    tile = Pipe((x, y), title_size)
                     self.tiles.add(tile)
 
-                if col == 'W':
+                if col == 'K':  # УБИЙЦЫ ТРУБЫ блоки
+                    tile = Bad_pipe((x, y), title_size)
+                    self.tiles.add(tile)
+
+
+                if col == 'W':  # финиш
                     tile = End_1Level((x, y), title_size)
                     self.tiles.add(tile)
 
-                if col == 'P':
+                if col == 'P': # Игрок
                     self.tile = Player((x, y))
                     self.player.add(self.tile)
 
-                if col == 'E':
-                    tile = Enemy((x, y), title_size)
+                if col == 'E': # стоячий враг
+                    tile = Bad_trub((x, y), title_size)
                     self.tiles.add(tile)
 
-                if col == 'R':
+                if col == 'R': # ходячий враг
                     tile = Enemy_run((x, y), title_size)
                     self.tiles.add(tile)
 
@@ -90,7 +95,7 @@ class Level_2:
 
             if sprite.rect.colliderect(player.rect):
                 # Проверяем просто это стена или враг
-                if str(sprite) == "<Enemy Sprite(in 1 groups)>":
+                if str(sprite) == "<Bad_trub Sprite(in 1 groups)>" or str(sprite) == "<Bad_pipe Sprite(in 1 groups)>":
                     self.tile.life = False
                     self.restart = True
                 if str(sprite) == "<Enemy_run Sprite(in 1 groups)>":
@@ -116,7 +121,7 @@ class Level_2:
             if sprite.rect.colliderect(player.rect):
 
                 # Проверяем просто это стена или враг
-                if str(sprite) == "<Enemy Sprite(in 1 groups)>":
+                if str(sprite) == "<Bad_trub Sprite(in 1 groups)>" or str(sprite) == "<Bad_pipe Sprite(in 1 groups)>":
                     self.tile.life = False
                     self.restart = True
 

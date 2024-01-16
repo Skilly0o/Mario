@@ -25,3 +25,5 @@ level_map = load_level('script/data/maps/level_1.txt')
 
 level_2_map = load_level('script/data/maps/level2.txt')
 
+boss_lvl = load_level('script/data/maps/boss_map.txt')
+
