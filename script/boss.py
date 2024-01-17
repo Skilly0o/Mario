@@ -1,4 +1,5 @@
 import pygame
+import time
 from script.player import Player
 
 class Boss(pygame.sprite.Sprite):
@@ -16,10 +17,11 @@ class Boss(pygame.sprite.Sprite):
         self.health = 3
         self.speed = 6
 
+        self.last_jump_time = time.time()
+
     def move(self):
         self.rect.x += self.speed
         self.jump()
-        self.apply_gravity()
 
     def damage(self):
         self.health -= 1
@@ -32,8 +34,10 @@ class Boss(pygame.sprite.Sprite):
             self.speed = 10
 
     def jump(self):
-        self.direction.y = self.jump_speed
-
+        current_time = time.time()
+        if current_time - self.last_jump_time >= 3:
+            self.direction.y = self.jump_speed
+            self.last_jump_time = current_time
 
     def apply_gravity(self):
         self.direction.y += self.gravity

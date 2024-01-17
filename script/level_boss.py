@@ -1,12 +1,12 @@
 import pygame
 
+from script.boss import Boss
+from script.end_1level import End_1Level
 from script.enemy import Enemy
 from script.ground import Ground
 from script.player import Player
-from script.end_1level import End_1Level
 from script.running_enemy import Enemy_run
 from script.setting import *
-from script.boss import Boss
 from script.tile import Tile
 
 
@@ -138,38 +138,44 @@ class Level_boss:
                     self.boses.damage()
                     player.direction.y = -20
 
-
-
-
-
-
     def vertical_movment_collision(self):
         player = self.player.sprite
         player.apply_gravity()
+        try:
+            boss = self.boss.sprite
+            boss.apply_gravity()
+        except:
+            print('Босс побежден')
+            # ТУТ НАДО СДЕЛАТЬ ЧТО БЫ ВЫВОДИЛОСЬ ПОБЕДНОЕ МЕНЮ ЧТОБЫ ИСПРАВИТЬ БАГ
+            self.boses.kill()
+            boss = player
 
         for sprite in self.tiles.sprites():
             if sprite.rect.colliderect(player.rect):
-
                 # Проверяем просто это стена или враг
                 if str(sprite) == "<Enemy Sprite(in 1 groups)>":
                     self.tile.life = False
                     self.restart = True
-
                 if str(sprite) == "<Enemy_run Sprite(in 1 groups)>":
                     sprite.update(0, death=True)
-
                 # проверка на конец лвла
                 if str(sprite) == "<End_1Level Sprite(in 1 groups)>":
                     self.end_level = True
-
                 if player.direction.y > 0:
                     player.rect.bottom = sprite.rect.top
                     player.on_ground = True
                     player.direction.y = 0
-
                 elif player.direction.y < 0:
                     player.rect.top = sprite.rect.bottom
                     player.direction.y = 0
+            # физика босса
+            if sprite.rect.colliderect(boss.rect):
+                if boss.direction.y > 0:
+                    boss.rect.bottom = sprite.rect.top
+                    boss.direction.y = 0
+                elif boss.direction.y < 0:
+                    boss.rect.top = sprite.rect.bottom
+                    boss.direction.y = 0
 
     def run(self):
         # Отрисовка спрайтов блоков
