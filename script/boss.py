@@ -1,40 +1,52 @@
 import pygame
-import random
-from script.setting import WIDTH, HEIGHT
-
-
+from script.player import Player
 
 class Boss(pygame.sprite.Sprite):
-    def __init__(self, player, pos):
+    def __init__(self, pos):
         super().__init__()
-        self.image = pygame.image.load('script/data/textures/test.png').convert_alpha()
+        self.image = pygame.image.load('script/data/textures/boss.png').convert_alpha()
+
         self.rect = self.image.get_rect(topleft=pos)
-        self.rect.x = random.randint(0, WIDTH - self.rect.width)
-        self.rect.y = random.randint(0, HEIGHT - self.rect.height)
-        self.player = player
 
-    def update(self):
-        player_pos = self.player.rect.center
-        boss_pos = self.rect.center
+        self.direction = pygame.math.Vector2(0, 0)
 
-        dx = player_pos[0] - boss_pos[0]
-        dy = player_pos[1] - boss_pos[1]
+        self.gravity = 0.8
+        self.jump_speed = -16
 
-        length = (dx ** 2 + dy ** 2) ** 0.5
-        if length != 0:
-            dx /= length
-            dy /= length
+        self.health = 3
+        self.speed = 6
 
-        speed = 3
-        self.rect.x += dx * speed
-        self.rect.y += dy * speed
+    def move(self):
+        self.rect.x += self.speed
+        self.jump()
+        self.apply_gravity()
 
-        if self.rect.right > WIDTH:
-            self.rect.left = 0
-        elif self.rect.left < 0:
-            self.rect.right = WIDTH
+    def damage(self):
+        self.health -= 1
+        print(self.health)
+        if self.health <= 0:
+            self.kill()
+        elif self.health == 2:
+            self.speed = 8
+        elif self.health == 1:
+            self.speed = 10
 
-        if self.rect.bottom > HEIGHT:
-            self.rect.top = 0
-        elif self.rect.top < 0:
-            self.rect.bottom = HEIGHT
+    def jump(self):
+        self.direction.y = self.jump_speed
+
+
+    def apply_gravity(self):
+        self.direction.y += self.gravity
+        self.rect.y += self.direction.y
+
+    def reverse_image(self):
+        if self.speed > 0:
+            self.image = pygame.transform.flip(self.image, True, False)
+
+    def reverse(self):
+        self.speed *= -1
+
+    def update(self, shift):
+        self.rect.x += shift
+        self.move()
+        self.reverse_image()

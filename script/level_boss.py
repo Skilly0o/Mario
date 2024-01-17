@@ -46,8 +46,8 @@ class Level_boss:
                     self.player.add(self.tile)
 
                 if col == 'B':
-                    tile = Boss(Player((x, y)), (x, y))
-                    self.boss.add(tile)
+                    self.boses = Boss((x, y))
+                    self.boss.add(self.boses)
 
                 if col == 'E':
                     tile = Enemy((x, y), title_size)
@@ -115,6 +115,34 @@ class Level_boss:
                 elif player.direction.x > 0:
                     player.rect.right = sprite.rect.left
 
+    def enemy_collision_reverse(self):
+        for enemy in self.boss.sprites():
+            if pygame.sprite.spritecollide(enemy, self.tiles, False):
+                enemy.reverse()
+
+    def check_enemy_collisions(self):
+        player = self.player.sprite
+
+        for sprite in self.boss.sprites():
+            if sprite.rect.colliderect(player.rect):
+
+                if player.direction.x < 0:
+                    player.rect.left = sprite.rect.right
+                    print('die')
+                elif player.direction.x > 0:
+                    print('die')
+                    player.rect.right = sprite.rect.left
+
+                if player.direction.y > 0:
+                    player.rect.bottom = sprite.rect.top
+                    self.boses.damage()
+                    player.direction.y = -20
+
+
+
+
+
+
     def vertical_movment_collision(self):
         player = self.player.sprite
         player.apply_gravity()
@@ -149,7 +177,9 @@ class Level_boss:
         self.tiles.draw(self.display_suface)
         self.scroll_x()
 
-        self.boss.update()
+        self.boss.update(self.world_shift)
+        self.enemy_collision_reverse()
+        self.check_enemy_collisions()
         self.boss.draw(self.display_suface)
 
         # Отрисовка спрайтов игрока
