@@ -9,6 +9,7 @@ from script.level import Level
 from script.level_boss import Level_boss
 from script.level_2 import Level_2
 from script.menu import main_menu
+from script.win_game import win_game
 from script.setting import *
 
 pygame.init()
@@ -101,10 +102,9 @@ if menu_choice == "play":
                 clock.tick(60)
 
         elif level_3_go:
-            print('лвл доне')
             pygame.init()
             screen = pygame.display.set_mode((WIDTH, HEIGHT))
-            background = pygame.image.load('script/data/textures/fon.jpg').convert_alpha()
+            background = pygame.image.load('script/data/textures/fon_3_lvl.jpg').convert_alpha()
             background = pygame.transform.smoothscale(background, screen.get_size())
             clock = pygame.time.Clock()
             level = Level_boss(boss_lvl, screen)
@@ -118,14 +118,19 @@ if menu_choice == "play":
                             pygame.quit()
                             sys.exit()
                     if level.end_level:
-                        level_2_go = False
-                        level_1_go = False
-                        level_3_go = True
-                        exitt = False
+                        w_g = win_game(screen)
+                        if w_g == 'play':
+                            level.restart = False
+                            level_3_go = False
+                            level_1_go = True
+                            exitt = False
+                            break
                     if level.restart:
                         gover_menu = game_over(screen)
                         if gover_menu == 'play':
                             level.restart = False
+                            level_3_go = False
+                            level_1_go = True
                             exitt = False
                             break
                 screen.blit(background, (0, 0))

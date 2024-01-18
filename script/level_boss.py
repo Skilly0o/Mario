@@ -5,9 +5,28 @@ from script.end_1level import End_1Level
 from script.enemy import Enemy
 from script.ground import Ground
 from script.player import Player
+import time
 from script.running_enemy import Enemy_run
 from script.setting import *
 from script.tile import Tile
+
+
+class Bullet(pygame.sprite.Sprite):
+    def __init__(self, x, y):
+        pygame.sprite.Sprite.__init__(self)
+        self.image = pygame.Surface((30, 10))
+        self.image.fill((255, 0, 0))
+        self.rect = self.image.get_rect()
+        self.rect.bottom = y
+        self.rect.centerx = x
+        self.speedy = 20
+
+    def update(self, speed):
+        if speed > 0:
+            self.rect.x += self.speedy
+        elif speed < 0:
+            self.rect.x -= self.speedy
+
 
 
 class Level_boss:
@@ -16,12 +35,17 @@ class Level_boss:
         self.display_suface = surface
         self.setup_level(level_data)
 
+        self.last_jump_time = time.time()
+        self.last_shot_time = time.time()
+        self.shoot_interval = 2
+
         self.world_shift = 0
         self.end_level = False
 
     def setup_level(self, layout):
         # отрисовка лвла
         self.tiles = pygame.sprite.Group()
+        self.bullets = pygame.sprite.Group()
         self.player = pygame.sprite.GroupSingle()
         self.boss = pygame.sprite.GroupSingle()
         self.restart = False
@@ -72,6 +96,16 @@ class Level_boss:
             self.world_shift = 0
             player.speed = 8
 
+    def shoot(self):
+        boss = self.boss.sprite
+        current_time = time.time()
+        if current_time - self.last_shot_time >= self.shoot_interval:
+            # Создать пулю (ваша реализация класса Bullet)
+            bullet = Bullet(boss.rect.x, boss.rect.top)
+            self.bullets.add(bullet)
+            self.last_shot_time = current_time
+
+
     def horizontal_movment_collision(self):
         player = self.player.sprite
         player.rect.x += player.direction.x * player.speed
@@ -116,27 +150,57 @@ class Level_boss:
                     player.rect.right = sprite.rect.left
 
     def enemy_collision_reverse(self):
-        for enemy in self.boss.sprites():
-            if pygame.sprite.spritecollide(enemy, self.tiles, False):
-                enemy.reverse()
+        boss = self.boss.sprite
+        if pygame.sprite.spritecollide(boss, self.tiles, False):
+            boss.reverse()
 
     def check_enemy_collisions(self):
         player = self.player.sprite
-
         for sprite in self.boss.sprites():
             if sprite.rect.colliderect(player.rect):
 
                 if player.direction.x < 0:
                     player.rect.left = sprite.rect.right
-                    print('die')
+                    self.restart = True
                 elif player.direction.x > 0:
-                    print('die')
+                    self.restart = True
                     player.rect.right = sprite.rect.left
 
                 if player.direction.y > 0:
                     player.rect.bottom = sprite.rect.top
                     self.boses.damage()
                     player.direction.y = -20
+
+
+    def check_bull_collisions(self):
+        player = self.player.sprite
+        for sprite in self.bullets.sprites():
+            if sprite.rect.colliderect(player.rect):
+
+                if player.direction.x < 0:
+                    player.rect.left = sprite.rect.right
+                    sprite.kill()
+                    self.restart = True
+                elif player.direction.x > 0:
+                    player.rect.right = sprite.rect.left
+                    sprite.kill()
+                    self.restart = True
+
+                if player.direction.y > 0:
+                    player.rect.bottom = sprite.rect.top
+                    sprite.kill()
+                    self.restart = True
+
+                elif player.direction.y < 0:
+                    player.rect.top = sprite.rect.bottom
+                    sprite.kill()
+                    self.restart = True
+
+
+    def bull_collision_title(self):
+        for bullet in self.bullets.sprites():
+            if pygame.sprite.spritecollide(bullet, self.tiles, False):
+                bullet.kill()
 
     def vertical_movment_collision(self):
         player = self.player.sprite
@@ -146,8 +210,7 @@ class Level_boss:
             boss.apply_gravity()
         except:
             print('Босс побежден')
-            # ТУТ НАДО СДЕЛАТЬ ЧТО БЫ ВЫВОДИЛОСЬ ПОБЕДНОЕ МЕНЮ ЧТОБЫ ИСПРАВИТЬ БАГ
-            self.boses.kill()
+            self.end_level = False
             boss = player
 
         for sprite in self.tiles.sprites():
@@ -182,8 +245,15 @@ class Level_boss:
         self.tiles.update(self.world_shift)
         self.tiles.draw(self.display_suface)
         self.scroll_x()
+        self.shoot()
 
+        # Босс и пульки его
         self.boss.update(self.world_shift)
+        self.bull_collision_title()
+        self.check_bull_collisions()
+        self.bullets.update(self.boses.speed)
+        self.bullets.draw(self.display_suface)
+
         self.enemy_collision_reverse()
         self.check_enemy_collisions()
         self.boss.draw(self.display_suface)
@@ -193,3 +263,5 @@ class Level_boss:
         self.horizontal_movment_collision()
         self.vertical_movment_collision()
         self.player.draw(self.display_suface)
+
+

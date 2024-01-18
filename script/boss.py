@@ -1,6 +1,11 @@
 import pygame
 import time
-from script.player import Player
+
+
+
+
+
+bullets = pygame.sprite.Group()
 
 class Boss(pygame.sprite.Sprite):
     def __init__(self, pos):
@@ -15,9 +20,11 @@ class Boss(pygame.sprite.Sprite):
         self.jump_speed = -16
 
         self.health = 3
-        self.speed = 6
+        self.speed = 1
 
         self.last_jump_time = time.time()
+        self.last_shot_time = time.time()  # Добавлено время последнего выстрела
+        self.shoot_interval = 2
 
     def move(self):
         self.rect.x += self.speed
@@ -54,3 +61,5 @@ class Boss(pygame.sprite.Sprite):
         self.rect.x += shift
         self.move()
         self.reverse_image()
+
+
