@@ -1,7 +1,6 @@
 import pygame
 
 from script.end_1level import End_1Level
-from script.enemy import Enemy
 from script.ground import Ground
 from script.player import Player
 from script.enemy import Enemy
@@ -23,6 +22,7 @@ class Level:
         self.setup_level(level_data)
 
         self.world_shift = 0
+        self.world_shift_text = 0
         self.end_level = False
 
         font = pygame.font.Font(None, 36)
@@ -75,15 +75,17 @@ class Level:
 
         if player_x < WIDTH / 4 and direction_x < 0:
             self.world_shift = 8
+            self.world_shift_text -= 8
             player.speed = 0
         elif player_x > WIDTH - (WIDTH / 4) and direction_x > 0:
             self.world_shift = -8
+            self.world_shift_text += 8
             player.speed = 0
         else:
             self.world_shift = 0
             player.speed = 8
 
-    def horizontal_movment_collision(self):
+    def horizontal_movment_collision(self, is_pause):
         player = self.player.sprite
         player.rect.x += player.direction.x * player.speed
 
@@ -107,7 +109,7 @@ class Level:
                                 sprite.update(0, cos=True)
                                 break
                     else:
-                        sprite.update(0)
+                        sprite.update(0, is_pause=is_pause)
                 else:
                     if sprite.y <= 4:
                         sprite.update(0, up=True)
@@ -173,22 +175,34 @@ class Level:
                     player.rect.top = sprite.rect.bottom
                     player.direction.y = 0
 
-    def run(self, is_pause1):
+    def run(self, is_pause1, count):
         # Отрисовка спрайтов блоков
-        self.tiles.update(self.world_shift)
+        #print(is_pause1)
+        self.tiles.update(self.world_shift, is_pause=is_pause1)
         self.tiles.draw(self.display_surface)
         self.scroll_x()
 
         # Отрисовка спрайтов игрока
         self.player.update(is_pause1)
-        self.horizontal_movment_collision()
+        self.horizontal_movment_collision(is_pause1)
         self.vertical_movment_collision()
         self.player.draw(self.display_surface)
+
         font = pygame.font.Font(None, 36)
         pause_text = font.render("Pause", True, "black")
         pygame.draw.rect(self.display_surface, "yellow", pause_button)
         self.display_surface.blit(font.render("Pause", True, "black"),
                                   (pause_button.x + 40, pause_button.y + 15))
+
+        pygame.draw.rect(self.display_surface, "yellow", pause_button)
+        self.display_surface.blit(font.render("Pause", True, "black"),
+                                  (pause_button.x + 40, pause_button.y + 15))
+
+        font = pygame.font.Font(None, 80)
+        text = font.render("Attempt " + str(count), True, (255, 255, 255))
+        self.display_surface.blit(text, (870 - self.world_shift_text, 250))
+        font = pygame.font.Font(None, 36)
+
         if is_pause1:
             pygame.draw.rect(self.display_surface, "Green", continue_button)
             self.display_surface.blit(font.render("Continue", True, "black"),

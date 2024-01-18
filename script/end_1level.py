@@ -7,5 +7,5 @@ class End_1Level(pygame.sprite.Sprite):
         self.image = pygame.image.load('script/data/textures/end_level.png').convert_alpha()
         self.rect = self.image.get_rect(topleft=pos)
 
-    def update(self, x_shift):
+    def update(self, x_shift, is_pause=False):
         self.rect.x += x_shift

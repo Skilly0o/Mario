@@ -155,6 +155,7 @@ class Level_2:
         self.horizontal_movment_collision()
         self.vertical_movment_collision()
         self.player.draw(self.display_surface)
+
         font = pygame.font.Font(None, 36)
         pause_text = font.render("Pause", True, "black")
         pygame.draw.rect(self.display_surface, "yellow", pause_button)

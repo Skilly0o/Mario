@@ -24,6 +24,7 @@ is_pause2 = False
 is_pause3 = False
 
 exitt = True
+count = 0
 
 pause_button = pygame.Rect(WIDTH - 150, 0, 150, 50)
 font = pygame.font.Font(None, 36)
@@ -33,6 +34,7 @@ if menu_choice == "play":
     while True:
         exitt = True
         if level_1_go:
+            count += 1
             pygame.init()
             screen = pygame.display.set_mode((WIDTH, HEIGHT))
             background = pygame.image.load('script/data/textures/fon.jpg').convert_alpha()
@@ -74,7 +76,7 @@ if menu_choice == "play":
                                 pygame.quit()
                                 sys.exit()
                 screen.blit(background, (0, 0))
-                level.run(is_pause1)
+                level.run(is_pause1, count)
                 pygame.display.update()
                 clock.tick(60)
 

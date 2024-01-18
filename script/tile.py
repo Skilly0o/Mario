@@ -7,7 +7,7 @@ class Tile(pygame.sprite.Sprite):
         self.image = pygame.image.load('script/data/textures/platform.png').convert_alpha()
         self.rect = self.image.get_rect(topleft=pos)
 
-    def update(self, x_shift):
+    def update(self, x_shift, is_pause=False):
         self.rect.x += x_shift
 
 

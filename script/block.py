@@ -9,7 +9,7 @@ class Block(pygame.sprite.Sprite):
         self.wall = True
         self.life = True
 
-    def update(self, x_shift, cos=False, down=False):
+    def update(self, x_shift, is_pause=False, cos=False, down=False):
         if cos:
             self.wall = False
         if down:

@@ -111,7 +111,7 @@ class Level_boss:
             self.bullets.add(bullet)
             self.last_shot_time = current_time
 
-    def horizontal_movment_collision(self):
+    def horizontal_movment_collision(self, is_pause):
         player = self.player.sprite
         player.rect.x += player.direction.x * player.speed
 
@@ -124,7 +124,7 @@ class Level_boss:
                                 sprite.update(0, cos=True)
                                 break
                     else:
-                        sprite.update(0)
+                        sprite.update(0, is_pause=is_pause)
                 else:
                     if sprite.y <= 4:
                         sprite.update(0, up=True)
@@ -245,7 +245,7 @@ class Level_boss:
 
     def run(self, is_pause3):
         # Отрисовка спрайтов блоков
-        self.tiles.update(self.world_shift)
+        self.tiles.update(self.world_shift, is_pause=is_pause3)
         self.tiles.draw(self.display_surface)
         self.scroll_x()
         self.shoot()
@@ -263,7 +263,7 @@ class Level_boss:
 
         # Отрисовка спрайтов игрока
         self.player.update(is_pause3)
-        self.horizontal_movment_collision()
+        self.horizontal_movment_collision(is_pause3)
         self.vertical_movment_collision()
         self.player.draw(self.display_surface)
         font = pygame.font.Font(None, 36)
