@@ -1,6 +1,8 @@
-import pygame
+
 import sys
 from math import sin, pi
+
+import pygame
 
 def main_menu(screen):
     background = pygame.image.load('script/data/textures/main_menu.jpg').convert_alpha()
@@ -59,3 +61,4 @@ def main_menu(screen):
         screen.blit(text, text_rect)
 
         pygame.display.update()
+

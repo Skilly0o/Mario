@@ -3,8 +3,8 @@ import sys
 import pygame
 
 
-def game_over(screen):
-    background = pygame.image.load('script/data/textures/game_over.png').convert_alpha()
+def win_game(screen):
+    background = pygame.image.load('script/data/textures/win_g.png').convert_alpha()
     background = pygame.transform.smoothscale(background, screen.get_size())
 
     play_button = pygame.Rect(50, 200, 200, 50)
@@ -35,4 +35,3 @@ def game_over(screen):
         screen.blit(quit_text, (quit_button.x + 50, quit_button.y + 10))
 
         pygame.display.update()
-
