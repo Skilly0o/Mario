@@ -1,5 +1,6 @@
-import pygame
 import sys
+
+import pygame
 
 
 def game_over(screen):

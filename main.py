@@ -1,16 +1,14 @@
-# Перезапуск игры после проигрыша просто кликом мышки
-
 import sys
 
 import pygame
 
 from script.game_over import game_over
 from script.level import Level
-from script.level_boss import Level_boss
 from script.level_2 import Level_2
+from script.level_boss import Level_boss
 from script.menu import main_menu
-from script.win_game import win_game
 from script.setting import *
+from script.win_game import win_game
 
 pygame.init()
 screen = pygame.display.set_mode((WIDTH, HEIGHT))

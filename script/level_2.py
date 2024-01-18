@@ -39,20 +39,19 @@ class Level_2:
                     tile = Bad_pipe((x, y), title_size)
                     self.tiles.add(tile)
 
-
                 if col == 'W':  # финиш
                     tile = End_1Level((x, y), title_size)
                     self.tiles.add(tile)
 
-                if col == 'P': # Игрок
+                if col == 'P':  # Игрок
                     self.tile = Player((x, y))
                     self.player.add(self.tile)
 
-                if col == 'E': # стоячий враг
+                if col == 'E':  # стоячий враг
                     tile = Bad_trub((x, y), title_size)
                     self.tiles.add(tile)
 
-                if col == 'R': # ходячий враг
+                if col == 'R':  # ходячий враг
                     tile = Enemy_run((x, y), title_size)
                     self.tiles.add(tile)
 

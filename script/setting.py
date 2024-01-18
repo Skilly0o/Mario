@@ -9,10 +9,10 @@ def get_monitor_size() -> tuple:
     return SIZE
 
 
-
 title_size = 64
 
 WIDTH, HEIGHT = get_monitor_size()
+
 
 def load_level(filename):
     with open(filename, 'r') as mapFile:
@@ -26,4 +26,3 @@ level_map = load_level('script/data/maps/level_1.txt')
 level_2_map = load_level('script/data/maps/level2.txt')
 
 boss_lvl = load_level('script/data/maps/boss_map.txt')
-

@@ -1,3 +1,5 @@
+import time
+
 import pygame
 
 from script.boss import Boss
@@ -5,7 +7,6 @@ from script.end_1level import End_1Level
 from script.enemy import Enemy
 from script.ground import Ground
 from script.player import Player
-import time
 from script.running_enemy import Enemy_run
 from script.setting import *
 from script.tile import Tile
@@ -26,7 +27,6 @@ class Bullet(pygame.sprite.Sprite):
             self.rect.x += self.speedy
         elif speed < 0:
             self.rect.x -= self.speedy
-
 
 
 class Level_boss:
@@ -105,7 +105,6 @@ class Level_boss:
             self.bullets.add(bullet)
             self.last_shot_time = current_time
 
-
     def horizontal_movment_collision(self):
         player = self.player.sprite
         player.rect.x += player.direction.x * player.speed
@@ -171,7 +170,6 @@ class Level_boss:
                     self.boses.damage()
                     player.direction.y = -20
 
-
     def check_bull_collisions(self):
         player = self.player.sprite
         for sprite in self.bullets.sprites():
@@ -195,7 +193,6 @@ class Level_boss:
                     player.rect.top = sprite.rect.bottom
                     sprite.kill()
                     self.restart = True
-
 
     def bull_collision_title(self):
         for bullet in self.bullets.sprites():
@@ -263,5 +260,3 @@ class Level_boss:
         self.horizontal_movment_collision()
         self.vertical_movment_collision()
         self.player.draw(self.display_suface)
-
-

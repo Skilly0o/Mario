@@ -1,9 +1,9 @@
 import pygame
 
+from script.end_1level import End_1Level
 from script.enemy import Enemy
 from script.ground import Ground
 from script.player import Player
-from script.end_1level import End_1Level
 from script.running_enemy import Enemy_run
 from script.setting import *
 from script.tile import Tile

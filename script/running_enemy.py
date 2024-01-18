@@ -35,4 +35,3 @@ class Enemy_run(pygame.sprite.Sprite):
         if down_down:
             self.rect.y += 1000
             self.y += 1
-
