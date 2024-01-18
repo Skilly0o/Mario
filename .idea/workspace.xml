@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce27cf72-6839-495a-81db-df68f180b8f8" name="Changes" comment="Добавила ящики">
+    <list default="true" id="ce27cf72-6839-495a-81db-df68f180b8f8" name="Changes" comment="заставил прыгать босса">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/script/data/maps/level_1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/script/data/maps/level_1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/script/data/textures/block.png" beforeDir="false" afterPath="$PROJECT_DIR$/script/data/textures/block.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/script/level.py" beforeDir="false" afterPath="$PROJECT_DIR$/script/level.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,9 +54,15 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/1/PycharmProjects/pythonProject&quot;
+    &quot;last_opened_file_path&quot;: &quot;D:/AllPythonProjeckt/testMar&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\AllPythonProjeckt\Mario\script" />
+      <recent name="D:\AllPythonProjeckt\Mario\script\data\textures" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Mario2" />
@@ -92,7 +98,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="ce27cf72-6839-495a-81db-df68f180b8f8" name="Changes" comment="Всё объединилось с уровнем, меню и тд. 2" />
+      <changelist id="ce27cf72-6839-495a-81db-df68f180b8f8" name="Changes" comment="поправка" />
       <created>1705092535415</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -140,7 +146,56 @@
       <option name="project" value="LOCAL" />
       <updated>1705184333046</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="сделал переход на новый уровень">
+      <created>1705243721982</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1705243721982</updated>
+    </task>
+    <task id="LOCAL-00008" summary="поправка">
+      <created>1705243779525</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1705243779525</updated>
+    </task>
+    <task id="LOCAL-00009" summary="сделал 2 уровень игры">
+      <created>1705412145090</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1705412145091</updated>
+    </task>
+    <task id="LOCAL-00010" summary="добавил 3 уровень и шаблон босса">
+      <created>1705415425792</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1705415425792</updated>
+    </task>
+    <task id="LOCAL-00011" summary="добавил 3 уровень и шаблон босса">
+      <created>1705415434240</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1705415434240</updated>
+    </task>
+    <task id="LOCAL-00012" summary="сделал мини босса">
+      <created>1705496915979</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1705496915979</updated>
+    </task>
+    <task id="LOCAL-00013" summary="заставил прыгать босса">
+      <created>1705498012015</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1705498012015</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -148,19 +203,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="lonelyslu(Kate)" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
@@ -174,7 +217,22 @@
     <MESSAGE value="добавила бегающих врагов" />
     <MESSAGE value="2" />
     <MESSAGE value="Всё объединилось с уровнем, меню и тд." />
-    <MESSAGE value="Всё объединилось с уровнем, меню и тд. 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Всё объединилось с уровнем, меню и тд. 2" />
+    <MESSAGE value="сделал переход на новый уровень" />
+    <MESSAGE value="поправка" />
+    <MESSAGE value="сделал 2 уровень игры" />
+    <MESSAGE value="добавил 3 уровень и шаблон босса" />
+    <MESSAGE value="сделал мини босса" />
+    <MESSAGE value="заставил прыгать босса" />
+    <option name="LAST_COMMIT_MESSAGE" value="заставил прыгать босса" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/script/player.py</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
