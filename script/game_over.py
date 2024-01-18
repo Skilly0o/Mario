@@ -35,3 +35,4 @@ def game_over(screen):
         screen.blit(quit_text, (quit_button.x + 50, quit_button.y + 10))
 
         pygame.display.update()
+

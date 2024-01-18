@@ -14,6 +14,7 @@ from script.tile import Tile
 class Level:
     def __init__(self, level_data, surface):
         # настройки уровня
+        self.running = True
         self.display_suface = surface
         self.setup_level(level_data)
 
@@ -60,6 +61,7 @@ class Level:
                 if col == 'R':
                     tile = Enemy_run((x, y), title_size)
                     self.tiles.add(tile)
+
 
     def scroll_x(self):
         player = self.player.sprite
@@ -130,6 +132,7 @@ class Level:
                 if str(sprite) == "<Block Sprite(in 1 groups)>":
                     if sprite.wall:
                         sprite.update(player.direction.x * 8)
+
                 if player.direction.x < 0:
                     player.rect.left = sprite.rect.right
                 elif player.direction.x > 0:
@@ -141,7 +144,6 @@ class Level:
 
         for sprite in self.tiles.sprites():
             if sprite.rect.colliderect(player.rect):
-
                 # Проверяем просто это стена или враг
                 if str(sprite) == "<Enemy Sprite(in 1 groups)>":
                     self.tile.life = False

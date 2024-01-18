@@ -1,5 +1,3 @@
-import sys
-
 import pygame
 
 from script.game_over import game_over
@@ -16,9 +14,12 @@ clock = pygame.time.Clock()
 
 menu_choice = main_menu(screen)
 
+
 level_1_go = True
 level_2_go = False
 level_3_go = False
+
+
 
 exitt = True
 if menu_choice == "play":
@@ -135,3 +136,4 @@ if menu_choice == "play":
                 level.run()
                 pygame.display.update()
                 clock.tick(60)
+

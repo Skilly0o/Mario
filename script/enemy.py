@@ -29,4 +29,3 @@ class Bad_pipe(pygame.sprite.Sprite):
 
     def update(self, x_shift):
         self.rect.x += x_shift
-
