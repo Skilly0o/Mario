@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ce27cf72-6839-495a-81db-df68f180b8f8" name="Changes" comment="заставил прыгать босса">
+      <change beforePath="$PROJECT_DIR$/.idea/Mario2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Mario2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/script/data/maps/level_1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/script/data/maps/level_1.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,13 +22,16 @@
       </list>
     </option>
   </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="Skilly(Ivan)" />
+  </component>
   <component name="Git.Rebase.Settings">
     <option name="NEW_BASE" value="main" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="lonelyslu(Kate)" />
+        <entry key="$PROJECT_DIR$" value="Skilly(Ivan)" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
