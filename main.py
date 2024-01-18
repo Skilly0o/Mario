@@ -24,17 +24,11 @@ is_pause2 = False
 is_pause3 = False
 
 exitt = True
-pause_button = pygame.Rect(WIDTH - 150, 0, 150, 50)
-font = pygame.font.Font(None, 36)
-pause_text = font.render("Pause", True, "black")
 
 pause_button = pygame.Rect(WIDTH - 150, 0, 150, 50)
 font = pygame.font.Font(None, 36)
 pause_text = font.render("Pause", True, "black")
 
-pause_button = pygame.Rect(WIDTH - 150, 0, 150, 50)
-font = pygame.font.Font(None, 36)
-pause_text1 = font.render("Pause", True, "black")
 if menu_choice == "play":
     while True:
         exitt = True
