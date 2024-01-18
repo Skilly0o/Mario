@@ -154,8 +154,6 @@ class Level:
                 if str(sprite) == "<End_1Level Sprite(in 1 groups)>":
                     self.end_level = True
 
-                    if self.tile.life:
-                        sprite.update(0, death=True)
                 if player.direction.y > 0:
                     player.rect.bottom = sprite.rect.top
                     player.on_ground = True
