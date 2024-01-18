@@ -4,6 +4,8 @@ from script.end_1level import End_1Level
 from script.enemy import Enemy
 from script.ground import Ground
 from script.player import Player
+from script.enemy import Enemy
+from script.block import Block
 from script.running_enemy import Enemy_run
 from script.setting import *
 from script.tile import Tile
@@ -27,6 +29,10 @@ class Level:
             for col_index, col in enumerate(row):
                 x = col_index * title_size
                 y = row_index * title_size
+                if col == 'P':
+                    self.tile = Player((x, y))
+                    self.player.add(self.tile)
+
                 if col == 'X':
                     tile = Tile((x, y), title_size)
                     self.tiles.add(tile)
@@ -45,6 +51,10 @@ class Level:
 
                 if col == 'E':
                     tile = Enemy((x, y), title_size)
+                    self.tiles.add(tile)
+
+                if col == 'B':
+                    tile = Block((x, y), title_size)
                     self.tiles.add(tile)
 
                 if col == 'R':
@@ -71,11 +81,19 @@ class Level:
         player.rect.x += player.direction.x * player.speed
 
         for sprite in self.tiles.sprites():
-            if str(sprite) == "<Enemy_run Sprite(in 1 groups)>":
+            down = True
+            if str(sprite) == "<Enemy_run Sprite(in 1 groups)>" \
+                    or str(sprite) == "<Block Sprite(in 1 groups)>":
                 if sprite.life:
                     for i in self.tiles.sprites():
-                        if str(i) != "<Enemy_run Sprite(in 1 groups)>":
-                            if sprite.rect.colliderect(i.rect):
+                        if i.rect.center != sprite.rect.center:
+                            if i.rect.top == sprite.rect.bottom and (-64 < i.rect.center[0] - sprite.rect.center[0] < 64) and\
+                                    str(sprite) == "<Block Sprite(in 1 groups)>":
+                                down = False
+                            if (i.rect.center[0] - sprite.rect.center[0] == 64 or i.rect.center[0] - sprite.rect.center[0] == -64) and \
+                                    str(sprite) == "<Block Sprite(in 1 groups)>" and i.rect.center[1] == sprite.rect.center[1]:
+                                sprite.update(0, cos=True)
+                            if sprite.rect.colliderect(i.rect) and str(sprite) != "<Block Sprite(in 1 groups)>":
                                 sprite.update(0, cos=True)
                                 break
                     else:
@@ -87,6 +105,12 @@ class Level:
                         sprite.update(0, down=True)
                     elif 20 < sprite.y < 22:
                         sprite.update(0, down_down=True)
+            if down and str(sprite) == "<Block Sprite(in 1 groups)>":
+                sprite.update(16, down=True)
+                sprite.update(player.direction.x * 8)
+                if sprite.rect.center[1] > 1200:
+                    sprite.update(5000, down=True)
+                    sprite.wall = False
 
             if sprite.rect.colliderect(player.rect):
                 # Проверяем просто это стена или враг
@@ -96,7 +120,6 @@ class Level:
 
                 if str(sprite) == "<Enemy_run Sprite(in 1 groups)>":
                     if sprite.life:
-                        sprite.update(0)
                         self.tile.life = False
                         self.restart = True
 
@@ -104,6 +127,9 @@ class Level:
                 if str(sprite) == "<End_1Level Sprite(in 1 groups)>":
                     self.end_level = True
 
+                if str(sprite) == "<Block Sprite(in 1 groups)>":
+                    if sprite.wall:
+                        sprite.update(player.direction.x * 8)
                 if player.direction.x < 0:
                     player.rect.left = sprite.rect.right
                 elif player.direction.x > 0:
@@ -128,6 +154,8 @@ class Level:
                 if str(sprite) == "<End_1Level Sprite(in 1 groups)>":
                     self.end_level = True
 
+                    if self.tile.life:
+                        sprite.update(0, death=True)
                 if player.direction.y > 0:
                     player.rect.bottom = sprite.rect.top
                     player.on_ground = True

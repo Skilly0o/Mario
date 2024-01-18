@@ -14,6 +14,12 @@
       <change beforePath="$PROJECT_DIR$/script/data/maps/boss_map.txt" beforeDir="false" afterPath="$PROJECT_DIR$/script/data/maps/boss_map.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/script/level_boss.py" beforeDir="false" afterPath="$PROJECT_DIR$/script/level_boss.py" afterDir="false" />
     </list>
+    <list default="true" id="ce27cf72-6839-495a-81db-df68f180b8f8" name="Changes" comment="Добавила ящики">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/script/data/maps/level_1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/script/data/maps/level_1.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/script/data/textures/block.png" beforeDir="false" afterPath="$PROJECT_DIR$/script/data/textures/block.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/script/level.py" beforeDir="false" afterPath="$PROJECT_DIR$/script/level.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -105,6 +111,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+      <changelist id="ce27cf72-6839-495a-81db-df68f180b8f8" name="Changes" comment="Всё объединилось с уровнем, меню и тд. 2" />
       <changelist id="ce27cf72-6839-495a-81db-df68f180b8f8" name="Changes" comment="поправка" />
       <created>1705092535415</created>
       <option name="number" value="Default" />
@@ -217,7 +224,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="lonelyslu(Kate)" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -249,5 +268,7 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <MESSAGE value="Всё объединилось с уровнем, меню и тд. 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Всё объединилось с уровнем, меню и тд. 2" />
   </component>
 </project>

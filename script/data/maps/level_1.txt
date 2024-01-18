@@ -1,23 +1,23 @@
-.................................................................................
-.................................................................................
-.G...............................................................................
-G...............................................................................G
-G...............................................................................G
-G......................................E........................................G
-G..............XX.....................XXX.......................................G
-G...P......E..XGGX.................X......X.....................................G
-GXXXXXXX  XXXXXGGGX..R.X   XX   XXX.........X.........X..........XX...X......W..G
-GGGGGGGG..GGGGGGGGGXXXXG...GG...GGG..........XX...R..XX.XXXXXXX..........XXXXXXXX
-GGGGGGGG..GGGGGGGGGGGGGG...GG...G............GGGGGGGGGG.GGGGGGG..........GGGGGGGG
-GGGGGGGG..GGGGGGGGGGGGGG...GG...G............GGGGGGGGGG.GGGGGGG..........GGGGGGGG
-GGGGGGGG..GGGGGGGGGGGGGG...GG...G............GGGGGGGGGG.GGGGGGG..........GGGGGGGG
-GGGGGGGG..GGGGGGGGGGGGGG...GG...G............GGGGGGGGGG.GGGGGGG..........GGGGGGGG
-GGGGGGGG..GGGGGGGGGGGGGG...GG...G............GGGGGGGGGG.GGGGGGG..........GGGGGGGG
-GGGGGGGG..GGGGGGGGGGGGGG...GG...G............GGGGGGGGGG.GGGGGGG..........GGGGGGGG
-GGGGGGGG..GGGGGGGGGGGGGG...GG...G............GGGGGGGGGG.GGGGGGG..........GGGGGGGG
-.............................................GGGGGGGGGG.GGGGGGG..........GGGGGGGG
-.................................................................................
-.................................................................................
-EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
-
+GGGGGGGGGGGGX.............................................................................................................................XXGGGGGGGGGGGGG
+GGGGGXXGGGGGX..........................................................................B...................................................XGGGGGGGGGGGG
+GGGGXXXGGGGGX....................................................................X..XXXX...................................................XGGXXXXGGGGGG
+GGGXXXXGGGGGX...........................................................X...XX.............................................................XGX....XGGGGG
+GGXXGXXGGGGGX..............................................................................................................................XGX...XGGGGGG
+GGGGGXXGGGGGX......................................E..................X............................................................XXXXXXXXGGGXXXGGGGGGG
+GGGGGXXGGGGGX..............XX.....................XXX..............................................................................GGGGGGGGGGGGGGGGGGGGG
+GGGGGXXGGGGGX..........EEEXGGX.................X......X...................X....................................................X...GGGGXXXXXGGGGGGGGGGGG
+GGGGGXXGGGGGX.......  XXXXXGGGX...RX   XX   XXX...X.....X.........X....E..........................E.B...................E.XX.......GGGXGGGGGXGGGGGGGGGGG
+GGGGXXXXGGGGX.P...XX..GGGGGGGGGXXXXG...GG...GGG...E..X...XX...R..XX.XXXXXXX.R..X.....XXXX......XXXXXXXX................XXXGG.......GGXGGGGGGGXGGGGGGGGGG
+GGGXXXXXXGGGX....XGG..GGGGXXXGGGGGGG...GG...GG...XX......GGXXXXXXGG.GGGGGGGXXXXX..R..XGGG.......GGGGGGGXXXXX..........XGGGGG.......GGXGXGGGXGXGGGGGGGGGG
+GGGGGGGGGGGGX...XGGG..GGGX...XXXGGGG...GG...G............GGGGGGGGGG.GGGXXXXXGGGGXXXXXGGGG.........GGGGGGGGGX..........XGGGGG.......GGXGGGGGGGXGGGGGGGGGG
+GGGGXXXXGGGGGXXXGGGG..GGGGXX..R.XGGG...GG...G............GGGXXXXXGG.GXX.....XXXGGGX..XXGG..........GGGGGGGGGXXXXX.....XGGGGG.......GGXGXGGGXGXGGGGGGGGGG
+GGGX....XGGGGGGGGGGG..GGGGGGXXXXGGGG...GG...G............GGX.....XG.GGXXXX.....XGGGX..XGG..........GGGGGGGGGGGGGGXXXXXGGGGGG.......GGXGGXXXGGXGGGGGGGGGG
+GGGGX.XXGGGGGGGGGGGG..GGGGGGGGGGGGGG...GG...G............GGGXX..XGG.GGX...R....XGXGGXXGGG..........GGGGGGGGGGGGGGGGGGGGGGGGG.......GGGXGGGGGXGGGGGGGGGGG
+GGGGGXGGGGGGGGGGGGGG..GGGGGGGGGGGGGG...GG...G............GGGGGXXGGG.GGGXXXXXXXXGGGGGGGGGG..........GGGGGGGGGGGGGGGGGGGGGGGGG.......GGGGXXXXXGGGGGGGGGGGG
+GGGGGGGGGGGGGGGGGGGG..GGGGGGGGGGGGGG...GG...G............GGGGGGGGGG.GGGGGGGGGGGGGGGGGGGGG..........GGGGGGGGGGGGGGGGGGGGGGGGG.......GGGGGGGGGGGGGGGGGGGGG
+.........................................................GGGGGGGGGG.GGGGGGGGGGGGGGGGGGGGG..........GGGGGGGGGGGGGGGGGGGGGGGGG.......GGXGGXXXGGXGGGGGGGGGG
+........................................................................................................................................................
+........................................................................................................................................................
+EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+..............
 
