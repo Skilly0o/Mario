@@ -21,7 +21,7 @@ class Boss(pygame.sprite.Sprite):
         self.last_jump_time = time.time()
 
     def move(self, is_pause3):
-        if is_pause3:
+        if not is_pause3:
             self.rect.x += self.speed
             self.jump()
 

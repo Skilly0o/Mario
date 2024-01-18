@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ce27cf72-6839-495a-81db-df68f180b8f8" name="Changes" comment="добавил текстуру боссу">
+      <change beforePath="$PROJECT_DIR$/.idea/Mario2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Mario2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/script/data/maps/level2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/script/data/maps/level2.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/script/level.py" beforeDir="false" afterPath="$PROJECT_DIR$/script/level.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/script/running_enemy.py" beforeDir="false" afterPath="$PROJECT_DIR$/script/running_enemy.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/script/tile.py" beforeDir="false" afterPath="$PROJECT_DIR$/script/tile.py" afterDir="false" />
@@ -48,22 +51,22 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2as1aUfPlFtWrujaPaK4YEivmxh" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Kinzool(Kirill)",
-    "last_opened_file_path": "D:/AllPythonProjeckt/testMar"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Kinzool(Kirill)&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/AllPythonProjeckt/testMar&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\AllPythonProjeckt\Mario\script" />
@@ -306,7 +309,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705514782874</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="добавил файлы">
+      <option name="closed" value="true" />
+      <created>1705614487508</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1705614487508</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -347,6 +358,7 @@
     <MESSAGE value="сделал мини босса" />
     <MESSAGE value="заставил прыгать босса" />
     <MESSAGE value="добавил текстуру боссу" />
-    <option name="LAST_COMMIT_MESSAGE" value="добавил текстуру боссу" />
+    <MESSAGE value="добавил файлы" />
+    <option name="LAST_COMMIT_MESSAGE" value="добавил файлы" />
   </component>
 </project>
