@@ -11,6 +11,10 @@ from script.running_enemy import Enemy_run
 from script.setting import *
 from script.tile import Tile
 
+pause_button = pygame.Rect(WIDTH - 150, 0, 150, 50)
+continue_button = pygame.Rect((WIDTH - 200) // 2, (HEIGHT - 50) // 2, 200, 50)
+quit_button = pygame.Rect((WIDTH - 200) // 2, ((HEIGHT - 50) // 2) + 100, 200, 50)
+
 
 class Bullet(pygame.sprite.Sprite):
     def __init__(self, x, y):
@@ -32,7 +36,7 @@ class Bullet(pygame.sprite.Sprite):
 class Level_boss:
     def __init__(self, level_data, surface):
         # настройки уровня
-        self.display_suface = surface
+        self.display_surface = surface
         self.setup_level(level_data)
 
         self.last_jump_time = time.time()
@@ -41,6 +45,8 @@ class Level_boss:
 
         self.world_shift = 0
         self.end_level = False
+
+        font = pygame.font.Font(None, 36)
 
     def setup_level(self, layout):
         # отрисовка лвла
@@ -237,26 +243,38 @@ class Level_boss:
                     boss.rect.top = sprite.rect.bottom
                     boss.direction.y = 0
 
-    def run(self):
+    def run(self, is_pause3):
         # Отрисовка спрайтов блоков
         self.tiles.update(self.world_shift)
-        self.tiles.draw(self.display_suface)
+        self.tiles.draw(self.display_surface)
         self.scroll_x()
         self.shoot()
 
         # Босс и пульки его
-        self.boss.update(self.world_shift)
+        self.boss.update(self.world_shift, is_pause3)
         self.bull_collision_title()
         self.check_bull_collisions()
         self.bullets.update(self.boses.speed)
-        self.bullets.draw(self.display_suface)
+        self.bullets.draw(self.display_surface)
 
         self.enemy_collision_reverse()
         self.check_enemy_collisions()
-        self.boss.draw(self.display_suface)
+        self.boss.draw(self.display_surface)
 
         # Отрисовка спрайтов игрока
-        self.player.update()
+        self.player.update(is_pause3)
         self.horizontal_movment_collision()
         self.vertical_movment_collision()
-        self.player.draw(self.display_suface)
+        self.player.draw(self.display_surface)
+        font = pygame.font.Font(None, 36)
+        pause_text = font.render("Pause", True, "black")
+        pygame.draw.rect(self.display_surface, "yellow", pause_button)
+        self.display_surface.blit(font.render("Pause", True, "black"),
+                                  (pause_button.x + 40, pause_button.y + 15))
+        if is_pause3:
+            pygame.draw.rect(self.display_surface, "Green", continue_button)
+            self.display_surface.blit(font.render("Continue", True, "black"),
+                                      (continue_button.x + 40, continue_button.y + 15))
+            pygame.draw.rect(self.display_surface, "red", quit_button)
+            self.display_surface.blit(font.render("Quit", True, "black"),
+                                      (quit_button.x + 70, quit_button.y + 15))

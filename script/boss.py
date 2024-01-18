@@ -20,9 +20,10 @@ class Boss(pygame.sprite.Sprite):
 
         self.last_jump_time = time.time()
 
-    def move(self):
-        self.rect.x += self.speed
-        self.jump()
+    def move(self, is_pause3):
+        if is_pause3:
+            self.rect.x += self.speed
+            self.jump()
 
     def damage(self):
         self.health -= 1
@@ -51,7 +52,7 @@ class Boss(pygame.sprite.Sprite):
     def reverse(self):
         self.speed *= -1
 
-    def update(self, shift):
+    def update(self, shift, is_pause3):
         self.rect.x += shift
-        self.move()
+        self.move(is_pause3)
         self.reverse_image()

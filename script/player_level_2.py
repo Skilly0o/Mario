@@ -14,19 +14,20 @@ class Player(pygame.sprite.Sprite):
 
         self.life = True
 
-    def get_input(self):
-        if self.life:
-            keys = pygame.key.get_pressed()
+    def get_input(self, is_pause2):
+        if not is_pause2:
+            if self.life:
+                keys = pygame.key.get_pressed()
 
-            if keys[pygame.K_RIGHT]:
-                self.direction.x = 1
-            elif keys[pygame.K_LEFT]:
-                self.direction.x = -1
-            else:
-                self.direction.x = 0
+                if keys[pygame.K_RIGHT]:
+                    self.direction.x = 1
+                elif keys[pygame.K_LEFT]:
+                    self.direction.x = -1
+                else:
+                    self.direction.x = 0
 
-            if keys[pygame.K_UP]:
-                self.jump()
+                if keys[pygame.K_UP]:
+                    self.jump()
 
     def x(self):
         return self.life
@@ -38,5 +39,5 @@ class Player(pygame.sprite.Sprite):
     def jump(self):
         self.direction.y = self.jump_speed
 
-    def update(self):
-        self.get_input()
+    def update(self, is_pause2):
+        self.get_input(is_pause2)
