@@ -5,18 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ce27cf72-6839-495a-81db-df68f180b8f8" name="Changes" comment="добавил текстуру боссу">
-      <change beforePath="$PROJECT_DIR$/.idea/Mario2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Mario2.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/script/boss.py" beforeDir="false" afterPath="$PROJECT_DIR$/script/boss.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/script/data/maps/level2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/script/data/maps/level2.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/script/data/maps/level_1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/script/data/maps/level_1.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/script/level.py" beforeDir="false" afterPath="$PROJECT_DIR$/script/level.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/script/level_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/script/level_2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/script/level_boss.py" beforeDir="false" afterPath="$PROJECT_DIR$/script/level_boss.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/script/player.py" beforeDir="false" afterPath="$PROJECT_DIR$/script/player.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/script/player_level_2.py" beforeDir="false" afterPath="$PROJECT_DIR$/script/player_level_2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/script/running_enemy.py" beforeDir="false" afterPath="$PROJECT_DIR$/script/running_enemy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/script/tile.py" beforeDir="false" afterPath="$PROJECT_DIR$/script/tile.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +28,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="lonelyslu(Kate)" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -56,6 +48,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 1
+}]]></component>
   <component name="ProjectId" id="2as1aUfPlFtWrujaPaK4YEivmxh" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -65,7 +60,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Kinzool(Kirill)",
     "last_opened_file_path": "D:/AllPythonProjeckt/testMar"
   }
 }]]></component>
@@ -325,7 +320,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="lonelyslu(Kate)" />
+                        <option value="Kinzool(Kirill)" />
                       </list>
                     </value>
                   </entry>
@@ -353,21 +348,5 @@
     <MESSAGE value="заставил прыгать босса" />
     <MESSAGE value="добавил текстуру боссу" />
     <option name="LAST_COMMIT_MESSAGE" value="добавил текстуру боссу" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/main.py</url>
-          <line>135</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/script/level_2.py</url>
-          <line>162</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

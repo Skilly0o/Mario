@@ -175,7 +175,7 @@ class Level:
 
     def run(self, is_pause1):
         # Отрисовка спрайтов блоков
-        self.tiles.update(self.world_shift)
+        self.tiles.update(self.world_shift, is_pause1)
         self.tiles.draw(self.display_surface)
         self.scroll_x()
 
