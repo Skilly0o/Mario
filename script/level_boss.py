@@ -212,7 +212,6 @@ class Level_boss:
             boss = self.boss.sprite
             boss.apply_gravity()
         except:
-            print('Босс побежден')
             self.end_level = False
             boss = player
 

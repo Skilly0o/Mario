@@ -30,6 +30,9 @@ pause_button = pygame.Rect(WIDTH - 150, 0, 150, 50)
 font = pygame.font.Font(None, 36)
 pause_text = font.render("Pause", True, "black")
 
+pygame.mixer.music.load("script/data/music/game_mus.mp3")
+pygame.mixer.music.play(-1)
+
 if menu_choice == "play":
     while True:
         exitt = True
