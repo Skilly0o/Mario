@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce27cf72-6839-495a-81db-df68f180b8f8" name="Changes" comment="добавил анимации">
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+    <list default="true" id="ce27cf72-6839-495a-81db-df68f180b8f8" name="Changes" comment="добавил важный файл">
+      <change afterPath="$PROJECT_DIR$/exe_game.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -230,7 +231,14 @@
       <option name="project" value="LOCAL" />
       <updated>1705665968696</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="добавил важный файл">
+      <created>1705669651381</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1705669651381</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -238,19 +246,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="Kinzool(Kirill)" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
@@ -274,6 +270,7 @@
     <MESSAGE value="добавил файлы" />
     <MESSAGE value="добавил музыку" />
     <MESSAGE value="добавил анимации" />
-    <option name="LAST_COMMIT_MESSAGE" value="добавил анимации" />
+    <MESSAGE value="добавил важный файл" />
+    <option name="LAST_COMMIT_MESSAGE" value="добавил важный файл" />
   </component>
 </project>
