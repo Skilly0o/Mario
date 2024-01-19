@@ -4,7 +4,11 @@ import pygame
 class Player(pygame.sprite.Sprite):
     def __init__(self, pos):
         super().__init__()
-        self.image = pygame.image.load('script/data/textures/test.png').convert_alpha()
+        self.images = [pygame.image.load('script/data/textures/player.png').convert_alpha(),
+                       pygame.image.load('script/data/textures/player_2.png').convert_alpha(),
+                       pygame.image.load('script/data/textures/player_3.png').convert_alpha()]
+        self.current_image = 0
+        self.image = self.images[self.current_image]
         self.rect = self.image.get_rect(topleft=pos)
 
         self.direction = pygame.math.Vector2(0, 0)
@@ -41,3 +45,8 @@ class Player(pygame.sprite.Sprite):
 
     def update(self, is_pause2):
         self.get_input(is_pause2)
+        if self.direction.x != 0:
+            self.current_image += 1
+            if self.current_image >= len(self.images):
+                self.current_image = 0
+            self.image = self.images[self.current_image]

@@ -26,11 +26,12 @@ class Bullet(pygame.sprite.Sprite):
         self.rect.centerx = x
         self.speedy = 20
 
-    def update(self, speed):
-        if speed > 0:
-            self.rect.x += self.speedy
-        elif speed < 0:
-            self.rect.x -= self.speedy
+    def update(self, speed, is_pause3):
+        if not is_pause3:
+            if speed > 0:
+                self.rect.x += self.speedy
+            elif speed < 0:
+                self.rect.x -= self.speedy
 
 
 class Level_boss:
@@ -253,7 +254,7 @@ class Level_boss:
         self.boss.update(self.world_shift, is_pause3)
         self.bull_collision_title()
         self.check_bull_collisions()
-        self.bullets.update(self.boses.speed)
+        self.bullets.update(self.boses.speed, is_pause3)
         self.bullets.draw(self.display_surface)
 
         self.enemy_collision_reverse()
