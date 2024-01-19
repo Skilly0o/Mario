@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce27cf72-6839-495a-81db-df68f180b8f8" name="Changes" comment="уменьшил музыку">
-      <change afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/script/data/music/game_mus.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/script/data/music/game_mus.mp3" afterDir="false" />
-    </list>
+    <list default="true" id="ce27cf72-6839-495a-81db-df68f180b8f8" name="Changes" comment="добавил анимации" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -231,21 +227,7 @@
       <option name="project" value="LOCAL" />
       <updated>1705665968696</updated>
     </task>
-    <task id="LOCAL-00018" summary="уменьшил музыку">
-      <created>1705667195962</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1705667195962</updated>
-    </task>
-    <task id="LOCAL-00019" summary="уменьшил музыку">
-      <created>1705667867705</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1705667867705</updated>
-    </task>
-    <option name="localTasksCounter" value="20" />
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -289,7 +271,6 @@
     <MESSAGE value="добавил файлы" />
     <MESSAGE value="добавил музыку" />
     <MESSAGE value="добавил анимации" />
-    <MESSAGE value="уменьшил музыку" />
-    <option name="LAST_COMMIT_MESSAGE" value="уменьшил музыку" />
+    <option name="LAST_COMMIT_MESSAGE" value="добавил анимации" />
   </component>
 </project>
